@@ -1,0 +1,15 @@
+{
+  "name": "@console/subnamespace-plugin",
+  "version": "0.0.0-fixed",
+  "description": "Subnamespace plugin for Console web application",
+  "private": true,
+  
+  "dependencies": {
+    "@console/plugin-sdk": "0.0.0-fixed"
+  },
+  "consolePlugin": {
+    "entry": "src/plugin.tsx",
+    "integrationTestSuites": { 
+    }
+  }
+}

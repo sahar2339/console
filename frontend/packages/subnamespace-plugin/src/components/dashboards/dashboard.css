@@ -1,0 +1,15 @@
+.helpblock{
+    display: flex;
+}
+
+.helpblock svg{
+    margin: 5px;
+    margin-top: 7px;
+    width: 2rem !important;
+}
+
+.omer{
+    font-size: 8px;
+    opacity: 0;
+}
+
