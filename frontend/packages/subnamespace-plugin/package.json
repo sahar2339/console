@@ -10,6 +10,9 @@
   "consolePlugin": {
     "entry": "src/plugin.tsx",
     "integrationTestSuites": { 
+    },
+    "exposedModules": {
+      "quota": "src/components/create-updatequota.tsx"
     }
   }
 }

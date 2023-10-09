@@ -8,5 +8,13 @@
         "perspective": "admin",
         "section": "home"
       }
+    },
+    {
+      "type": "console.page/route",
+      "properties": {
+        "exact": true,
+        "path": "/example",
+        "component": { "$codeRef": "quota.CreateUpdateQuotaPage" }
+      }
     }
   ]
