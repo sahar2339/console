@@ -16,6 +16,7 @@ import Dashboard from '@console/shared/src/components/dashboard/Dashboard';
 //import { UtilizationCard } from './dashboards/utilization-card';
 import { DetailsCard } from './dashboards/details-card';
 
+
 import {StatusCard} from './dashboards/status-card'
 import { SnsDashboardContext } from './dashboards/sns-dashboard-context';
 // import { useRefWidth } from '@console/internal/components/utils/ref-width-hook';
@@ -109,7 +110,6 @@ const SubnamespaceTableHeader = () => {
   ];
 };
 SubnamespaceTableHeader.displayName = 'SubnamespaceTableHeader';
-
 
 
 const SubnamespaceTableRow: React.FC<RowFunctionArgs<K8sResourceKind>> = ({ obj }) => {
@@ -250,7 +250,6 @@ const SnsDashboard: React.FC<SubnamespaceDetailsProps> = ({ obj }) => {
   const mainGridCards = React.useMemo(() => mapCardsToGrid(mainCards, 'left'), []);
   const rightGridCards = React.useMemo(() => mapCardsToGrid(rightCards, 'right'), []);
 
-if (!(obj.metadata?.annotations?.["dana.hns.io/is-rq"].toLowerCase() == "false"))
   return (
     <SnsDashboardContext.Provider value={context}>
       <Dashboard>
@@ -291,16 +290,8 @@ const pages = [
     name: 'Overview',
     component: SnsDashboard,
   },
-  navFactory.editYaml(),
-  {
-    //  href: 'updatequota',
-    //  name: 'Update Quota',
-    // component: CreateUpdateQuotaPage,
-    // },{
-    //  href: 'migration',
-    //  name: 'Migration Project',
-    //  component: CreateMigrationHierarchyPage,
-  },
+  navFactory.editYaml()
+
 ];
 
 export const snsType = (props): string => {

@@ -23,8 +23,7 @@
     "properties": {
       "id": "MigrationHierarchy",
       "name": "MigrationHierarchy",
-      "href": "/dana.hns.io~v1~MigrationHierarchy",
-      "prefixNamespaced": true,
+      "href": "/k8s/cluster/dana.hns.io~v1~MigrationHierarchy",
       "perspective": "admin",
       "exact": false,
       "section": "wallets"
@@ -66,7 +65,7 @@
     "type": "console.page/route",
     "properties": {
       "exact": false,
-      "path": ["/k8s/ns/:ns/migrationhierarchy", "/k8s/all-namespaces/migrationhierarchy"],
+      "path": ["k8s/cluster/dana.hns.io~v1~MigrationHierarchy"],
       "component": {
         "$codeRef": "Subnamespace.MigrationHierarchyPage"
       }

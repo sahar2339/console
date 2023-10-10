@@ -24,10 +24,10 @@ const menuActions = [...Kebab.getExtensionsActionsForKind(MigrationHierarchyMode
 
 
 const tableColumnClasses = [
-  classNames('col-lg-4', 'col-md-4', 'col-sm-5', 'col-xs-6'),
-  classNames('col-lg-4', 'col-md-4', 'col-sm-5', 'col-xs-6'),
-  classNames('col-lg-4', 'col-md-4', 'col-sm-5', 'col-xs-6'),
-  classNames('col-lg-4', 'col-md-4', 'col-sm-5', 'col-xs-6'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-5', 'col-l-6'),
   Kebab.columnClass,
 ];
 
