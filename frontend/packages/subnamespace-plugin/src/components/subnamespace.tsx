@@ -9,11 +9,14 @@ import {
   TableData,
   RowFunctionArgs,
 } from '@console/internal/components/factory';
+
 //import { ClusterResourceQuotasPage } from '@console/internal/components/cluster-resource-quota';
 import Dashboard from '@console/shared/src/components/dashboard/Dashboard';
 // import DashboardGrid from '@console/shared/src/components/dashboard/DashboardGrid';
 //import { UtilizationCard } from './dashboards/utilization-card';
 import { DetailsCard } from './dashboards/details-card';
+
+import {StatusCard} from './dashboards/status-card'
 import { SnsDashboardContext } from './dashboards/sns-dashboard-context';
 // import { useRefWidth } from '@console/internal/components/utils/ref-width-hook';
 import { Grid, GridItem } from '@patternfly/react-core';
@@ -42,12 +45,12 @@ const { common } = Kebab.factory;
 const menuActions = [...Kebab.getExtensionsActionsForKind(ClusterResourceQuotaModel), ...common];
 
 const tableColumnClasses = [
-  classNames('col-sm-5', 'col-xs-6'),
-  classNames('col-sm-5', 'col-xs-6'),
-  classNames('col-sm-5', 'col-xs-6'),
-  classNames('col-sm-5', 'col-xs-6'),
-  classNames('col-sm-5', 'col-xs-6'),
-  classNames('col-sm-2', 'hidden-xs'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-5', 'col-l-6'),
+  classNames('col-l-2', 'hidden-xs'),
   Kebab.columnClass,
 ];
 
@@ -196,7 +199,7 @@ export const getSnsFatherName = (snsFatherName: K8sResourceKind[]): string =>
 //   return props
 // };
 
-export const SubnamespaceList: React.SFC = React.memo((props) => {
+export const SubnamespaceList: React.FC = React.memo((props) => {
   return (
     <Table
       {...props}
@@ -236,6 +239,8 @@ export const SubnamespacePage: React.FC<SubnamespacePageProps> = (props) => {
 };
 
 const mainCards = [{Card: DetailsCard}];
+const rightCards = [{ Card: StatusCard }];
+
 
 
 const SnsDashboard: React.FC<SubnamespaceDetailsProps> = ({ obj }) => {
@@ -243,9 +248,9 @@ const SnsDashboard: React.FC<SubnamespaceDetailsProps> = ({ obj }) => {
     obj,
   };
   const mainGridCards = React.useMemo(() => mapCardsToGrid(mainCards, 'left'), []);
-let shouldDisplayCrq = true
+  const rightGridCards = React.useMemo(() => mapCardsToGrid(rightCards, 'right'), []);
+
 if (!(obj.metadata?.annotations?.["dana.hns.io/is-rq"].toLowerCase() == "false"))
-   shouldDisplayCrq = false
   return (
     <SnsDashboardContext.Provider value={context}>
       <Dashboard>
@@ -257,7 +262,9 @@ if (!(obj.metadata?.annotations?.["dana.hns.io/is-rq"].toLowerCase() == "false")
             <GridItem lg={6} md={6} sm={6}>
               <Grid className="co-dashboard-grid">{mainGridCards}</Grid>
             </GridItem>
-
+            <GridItem lg={6} md={6} sm={6}>
+              <Grid className="co-dashboard-grid">{rightGridCards}</Grid>
+            </GridItem>
           </Grid>
         </div>
 

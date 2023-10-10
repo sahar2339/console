@@ -1,12 +1,86 @@
-[
-    {
-      "type": "console.navigation/href",
-      "properties": {
-        "id": "example",
-        "name": "Plugin Example",
-        "href": "/example",
-        "perspective": "admin",
-        "section": "home"
+[  {
+    "type": "console.navigation/section",
+    "properties": {
+      "id": "wallets",
+      "name": "Wallets",
+      "insertBefore": "storage"
+    }
+  },
+  {
+    "type": "console.navigation/href",
+    "properties": {
+      "id": "Subnamespace",
+      "name": "Subnamespace",
+      "href": "/dana.hns.io~v1~Subnamespace",
+      "perspective": "admin",
+      "prefixNamespaced": true,
+      "exact": false,
+      "section": "wallets"
+    }
+  },
+  {
+    "type": "console.navigation/href",
+    "properties": {
+      "id": "MigrationHierarchy",
+      "name": "MigrationHierarchy",
+      "href": "/dana.hns.io~v1~MigrationHierarchy",
+      "prefixNamespaced": true,
+      "perspective": "admin",
+      "exact": false,
+      "section": "wallets"
+    }
+  },
+  {
+    "type": "console.navigation/href",
+    "properties": {
+      "id": "UpdateQuota",
+      "name": "UpdateQuota",
+      "href": "/dana.hns.io~v1~Updatequota",
+      "perspective": "admin",
+      "prefixNamespaced": true,
+      "exact": false,
+      "section": "wallets"
+    }
+  },
+  {
+    "type": "console.page/route",
+    "properties": {
+      "exact": false,
+      "path": ["/k8s/ns/:ns/subnamespace", "/k8s/all-namespaces/subnamespace"],
+      "component": {
+        "$codeRef": "Subnamespace.SubnamespacePage"
       }
     }
-  ]
+  },
+  {
+    "type": "console.page/route",
+    "properties": {
+      "exact": false,
+      "path": ["/k8s/ns/:ns/updatequota", "/k8s/all-namespaces/updatequota"],
+      "component": {
+        "$codeRef": "Subnamespace.UpdatequotaPage"
+      }
+    }
+  },
+  {
+    "type": "console.page/route",
+    "properties": {
+      "exact": false,
+      "path": ["/k8s/ns/:ns/migrationhierarchy", "/k8s/all-namespaces/migrationhierarchy"],
+      "component": {
+        "$codeRef": "Subnamespace.MigrationHierarchyPage"
+      }
+    }
+  },
+  {
+    "type": "console.page/resource/list",
+    "properties": {
+      "model": {
+        "group": "dana.hns.io",
+        "version": "v1",
+        "kind": "subnamespace"
+      },
+      "component": { "$codeRef": "Subnamespace.SubnamespaceList" }
+    }
+  }
+]
